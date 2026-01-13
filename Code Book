@@ -1,0 +1,78 @@
+# Code Book
+
+This code book describes the variables and transformations used to create
+the tidy data set `summarydata.txt`.
+
+## Data Source
+
+The data originate from the **Human Activity Recognition Using Smartphones Dataset**
+(UCI HAR Dataset).
+
+Signals were collected from smartphone accelerometer and gyroscope sensors
+and processed into time- and frequency-domain features.
+
+## Identifiers
+
+- `subject`  
+  Integer. Identifier of the subject who performed the activity (1–30).
+
+- `activity_name`  
+  Character. Descriptive activity name:
+  - WALKING
+  - WALKING_UPSTAIRS
+  - WALKING_DOWNSTAIRS
+  - SITTING
+  - STANDING
+  - LAYING
+
+## Measurement Variables
+
+All remaining variables are **averages** of the original measurements,
+calculated for each **subject–activity** combination.
+
+Variable name components:
+
+- `Time` / `Frequency`  
+  Indicates time-domain or frequency-domain signal.
+
+- `Body` / `Gravity`  
+  Indicates whether the signal is body motion or gravity component.
+
+- `Acceleration` / `Gyroscope`  
+  Type of sensor measurement.
+
+- `Jerk`  
+  The rate of change of acceleration (not an abbreviation).
+
+- `Magnitude`  
+  Magnitude of the three-dimensional signal.
+
+- `Mean`  
+  Mean value of the measurement.
+
+- `Std`  
+  Standard deviation of the measurement.
+
+- `X`, `Y`, `Z`  
+  Signal axis.
+
+### Example Variable Names
+
+- `TimeBodyAccelerationMeanX`  
+- `TimeBodyAccelerationStdY`  
+- `FrequencyBodyGyroscopeMeanZ`  
+- `TimeBodyAccelerationJerkStdX`
+
+## Transformations Performed
+
+1. Training and test datasets were merged.
+2. Only mean and standard deviation measurements were retained.
+3. Activity codes were replaced with descriptive activity names.
+4. Variable names were cleaned and expanded for readability.
+5. The mean of each variable was calculated for each subject and activity.
+
+## Final Tidy Data Set
+
+- Each row represents **one subject performing one activity**.
+- Each column represents **the average of a measurement variable**.
+- The dataset satisfies the principles of tidy data.
